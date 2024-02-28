@@ -1,0 +1,19 @@
+name: build docker action
+on:
+  push:
+    branches: main
+    paths: hello-world-docker-action/**
+  workflow_dispatch:
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3.3.0
+
+      - uses: ./hello-world-docker-action
+        id: greet
+        with:
+          who-to-greet: '@Sadamoto'
+
+      - run: echo " ${{ steps.greet.outputs.time }} "
