@@ -19,5 +19,4 @@ jobs:
       - run: echo " ${{ github.event_name }} "
       - run: echo " ${{ github.ref }} "
       - run: tree
-        shell: python
     
